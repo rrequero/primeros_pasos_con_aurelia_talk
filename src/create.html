@@ -1,0 +1,26 @@
+<template>
+  <section class="au-animate">
+    <require from="custom-elements/example"></require>
+    <h2>${heading}</h2>
+    <form role="form" submit.delegate="submit()">
+      <div class="form-group">
+        <label for="fn">Name</label>
+        <input type="text" value.bind="name" class="form-control" id="fn" placeholder="Name">
+      </div>
+      <div class="form-group">
+        <label for="sur">Surname</label>
+        <input type="text" value.bind="surname" class="form-control" id="sur" placeholder="Surname">
+      </div>
+      <div class="form-group">
+        <label for="num">Number</label>
+        <input type="number" value.bind="number" class="form-control" id="num" placeholder="Number">
+      </div>
+      <div class="form-group">
+        <label>Full Name</label>
+        <p class="help-block">${fullName | upper}</p>
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+       <example to.bind="fullName"></example>
+    </form>
+  </section>
+</template>
