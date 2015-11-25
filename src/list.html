@@ -1,7 +1,7 @@
 <template>
   <section class="au-animate">
     <h2>${heading}</h2>
-    <button click.trigger="new()">New user</button>
+    <button click.delegate="new()">New user</button>
     <div class="row au-stagger">
       <ul>
         <li class="col-sm-6 col-md-3 card-container au-animate" repeat.for="user of users">
@@ -12,7 +12,7 @@
             <div class="content">
               <p class="name">${user.name}</p>
               <a route-href="route: Edit; params.bind: { name: user.name }">Editar</a>
-              <button click.trigger="edit(user)">Editar (navigate with router object)</button>
+              <button click.delegate="edit(user)">Editar (navigate with router object)</button>
               <button click.trigger="delete(user)">Delete</button>
             </div>
           </div>

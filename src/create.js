@@ -1,8 +1,9 @@
 import { inject} from 'aurelia-framework';
 import {  HttpClient, json} from 'aurelia-fetch-client';
-import 'fetch';
+import {Router} from 'aurelia-router'
 
-@inject(HttpClient)
+
+@inject(HttpClient, Router)
 export class Create {
   heading = 'Create User';
   name = '';
@@ -10,8 +11,9 @@ export class Create {
   number = ''
   previousValue = this.fullName;
 
-  constructor(http) {
+  constructor(http, router) {
     this.http = http;
+    this.router = router;
   }
 
   get fullName() {
@@ -27,8 +29,7 @@ export class Create {
       method: 'post',
       body: body
     }).then(data => {
-      this.previousValue = this.fullName;
-      window.location.path = '/';
+      console.log(data)
     })
 
 
