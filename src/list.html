@@ -1,23 +1,20 @@
 <template>
   <section class="au-animate">
     <h2>${heading}</h2>
-    <button click.delegate="new()">New user</button>
     <div class="row au-stagger">
       <ul>
         <li class="col-sm-6 col-md-3 card-container au-animate" repeat.for="user of users">
           <div class="card">
-            <div class="avatar">
-
-            </div>
             <div class="content">
               <p class="name">${user.name}</p>
-              <a route-href="route: Edit; params.bind: { name: user.name }">Editar</a>
-              <button click.delegate="edit(user)">Editar (navigate with router object)</button>
-              <button click.trigger="delete(user)">Delete</button>
+              <a class="btn btn-default" route-href="route: Edit; params.bind: { name: user.name }">Editar (href)</a>
+              <button class="btn btn-default" click.delegate="edit(user)">Editar</button>
+              <button class="btn btn-default" click.trigger="delete(user)">Delete</button>
             </div>
           </div>
         </li>
       </ul>
     </div>
+    <button class="btn btn-primary pull-right" click.delegate="new()">New user</button>
   </section>
 </template>

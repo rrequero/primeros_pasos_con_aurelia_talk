@@ -1,0 +1,87 @@
+<template>
+    <section class="form-example au-animate">
+        <h1> Ejemplo formularios</h1>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="input1">Bind 2 ways</label>
+                    <input type="text" value.bind="input" class="form-control" id="input1" placeholder="Example">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <span class="binding">Input: ${input}</span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="input2">Binding by ref</label>
+                    <input type="text" ref="inputRef" class="form-control" id="input2" placeholder="Example">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <span class="binding">InputRef: ${inputRef.value}</span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="input3">Bind class</label>
+                    <input type="text" value.bind="class" class="form-control" id="input3" placeholder="class example">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <span class="binding ${class}" ref="spanRef">Class: ${spanRef.className}</span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <select class="form-control" value.bind="userSelected">
+                    <option repeat.for="user of users" model.bind="user">${user.name}</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <span class="binding">User option: ${userSelected.name}</span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <label class="form-control" repeat.for="user of users">
+                    <input type="radio" name="us" model.bind="user" checked.bind="$parent.userSelected" />
+                    ${user.name}
+                </label>
+            </div>
+            <div class="col-md-6">
+                <span class="binding">User radio selected: ${userSelected.name}</span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <div class="checkbox form-control" repeat.for="us of users">
+                    <label>
+                        <input type="checkbox" model.bind="us.name" checked.bind="$parent.favoriteUsers">
+                        ${us.name}
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <span class="binding">User check selected: ${favoriteUsers}</span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div textcontent.bind="textDiv" contenteditable="true">hola</div>
+            </div>
+            <div class="col-md-6">
+                Div: ${textDiv}
+            </div>
+        </div>
+    </section>
+</template>
