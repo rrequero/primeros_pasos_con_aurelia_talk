@@ -1,9 +1,9 @@
 import { inject} from 'aurelia-framework';
 import {  HttpClient, json} from 'aurelia-fetch-client';
 import {Router} from 'aurelia-router'
+import {Service} from './test';
 
-
-@inject(HttpClient, Router)
+@inject(HttpClient, Router, Service)
 export class Create {
   heading = 'Create User';
   name = '';
@@ -11,9 +11,11 @@ export class Create {
   number = ''
   previousValue = this.fullName;
 
-  constructor(http, router) {
+  constructor(http, router, Service) {
     this.http = http;
     this.router = router;
+    this.service = Service;
+    console.log(this.service.name);
   }
 
   get fullName() {

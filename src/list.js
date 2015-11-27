@@ -1,17 +1,19 @@
 import {inject} from 'aurelia-framework';
 import {HttpClient} from 'aurelia-fetch-client';
-import {Router} from 'aurelia-router'
+import {Router} from 'aurelia-router';
+import {Service} from './test';
 
 
-
-@inject(HttpClient, Router)
+@inject(HttpClient, Router, Service)
 export class List {
   heading = 'Users';
   users = [];
 
-  constructor(http, router) {
+  constructor(http, router, service) {
     this.http = http;
     this.router = router;
+    this.service = service;
+    this.service.setName('Juan');
   }
 
   edit(user){
